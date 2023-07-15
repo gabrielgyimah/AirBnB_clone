@@ -5,9 +5,11 @@
 
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel:
+    """This Model Implement All common attribute for other model."""
 
     def __init__(self, *arg, **kwargs) -> None:
         """Initializes instances of the BaseModel"""
@@ -38,22 +40,23 @@ class BaseModel:
 
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
-    def save(self):
+    def save(self) -> None:
         # Updates the public instance
         # attribute updated_at with the current
         # datetime
-        from models import storage
-        self.updated_at = datetime.now()
-        storage.save()
 
-    def to_dict(self):
+        self.updated_at = datetime.now()
+        models.storage.save()
+
+    def to_dict(self) -> dict:
         # Returns a dictionary containing
         # all keys/values of __dict__ of the
         # instance
 
-        self.created_at = str(self.created_at.isoformat())
-        self.updated_at = str(self.updated_at.isoformat())
-        obj = self.__dict__
-        obj['__class__'] = self.__class__.__name__
-
-        return obj
+        attr = self.__dict__.copy()
+        attr['__class__'] = self.__class__.__name__
+        if not type(attr['created_at']) is str:
+            attr['created_at'] = attr['created_at'].isoformat()
+        if not type(attr['updated_at']) is str:
+            attr['updated_at'] = attr['updated_at'].isoformat()
+        return attr

@@ -33,7 +33,7 @@ To set up the Airbnb Cloning Project on your local machine, follow these steps:
 2. Navigate to the project directory:
 cd AirBnB_clone
 
-3. Run the command ---- To be esttablished 
+3. Run the command ---- To be established 
 
 
 

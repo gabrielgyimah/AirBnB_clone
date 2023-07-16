@@ -16,6 +16,7 @@ from models.state import State
 class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
+    file = None
     class_names = ["BaseModel", "User", "City", "Review"]
     class_names += ["Place", "State", "Amenity"]
 

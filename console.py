@@ -53,7 +53,8 @@ class HBNBCommand(cmd.Cmd):
         print()
 
     def emptyline(self):
-        pass
+        # Returns a new line
+        return
 
     def help_emptyline(self):
         # Help handler for the quit method
@@ -125,6 +126,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
 
     def help_show(self):
+        # Deletes an instance based on the class
         print("Prints the string representation of an instance\n")
 
     def do_destroy(self, line):
@@ -172,6 +174,7 @@ class HBNBCommand(cmd.Cmd):
                         print("** no instance found **")
 
     def help_destroy(self):
+        # Prints all string representation
         print("Deletes an instance based on the class name\n")
 
     def do_all(self, line=None):

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Implementation of the Review Module."""
+"""Implementation of the Review Module"""
 
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """Creates all Reviews."""
+    """Creates all Reviews"""
 
     place_id: str = ''
     user_id: str = ''

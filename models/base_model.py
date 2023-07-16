@@ -5,7 +5,7 @@
 
 from datetime import datetime
 import uuid
-import models
+from models import storage
 
 
 class BaseModel:
@@ -28,7 +28,6 @@ class BaseModel:
             for key in attr:
                 setattr(self, key, attr[key])
         else:
-            from models import storage
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
@@ -46,17 +45,18 @@ class BaseModel:
         # datetime
 
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self) -> dict:
         # Returns a dictionary containing
         # all keys/values of __dict__ of the
         # instance
 
-        attr = self.__dict__.copy()
-        attr['__class__'] = self.__class__.__name__
-        if not type(attr['created_at']) is str:
-            attr['created_at'] = attr['created_at'].isoformat()
-        if not type(attr['updated_at']) is str:
-            attr['updated_at'] = attr['updated_at'].isoformat()
-        return attr
+        obj = self.__dict__.copy()
+        if not isinstance(obj['created_at'], str):
+            obj['created_at'] = str(obj['created_at'].isoformat())
+        if not isinstance(obj['updated_at'], str):
+            obj['updated_at'] = str(obj['updated_at'].isoformat())
+        obj['__class__'] = self.__class__.__name__
+
+        return obj

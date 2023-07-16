@@ -244,7 +244,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     try:
                         with open(storage.get_file, 'r',
-                                    encoding='UTF-8') as file:
+                                  encoding='UTF-8') as file:
                             data = json.load(file)
                         try:
                             got_id = False
@@ -295,7 +295,7 @@ class HBNBCommand(cmd.Cmd):
                                             storage.get_file, 'w',
                                                 encoding='UTF-8') as file:
                                             json.dump(returning_data,
-                                                        file, indent=8)
+                                                      file, indent=8)
                                     except Exception:
                                         pass
                         except Exception:
@@ -303,7 +303,6 @@ class HBNBCommand(cmd.Cmd):
 
                     except Exception:
                         pass
-
 
 
 if __name__ == '__main__':

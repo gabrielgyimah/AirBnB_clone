@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Implementation of the Place Module."""
+"""Implementation of the Place Module"""
 
 from models.base_model import BaseModel
 

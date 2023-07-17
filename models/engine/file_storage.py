@@ -17,11 +17,11 @@ class FileStorage:
 
     def new(self, obj):
         # Sets in __objects the obj with key <obj class name>.id
-        try:
-            key = obj.__class__.__name__ + '.' + obj.id
-            self.__objects[key] = obj
-        except Exception:
-            pass
+        if not obj:
+            return
+        attr = obj.to_dict()
+        key = attr['__class__'] + '.' + attr['id']
+        self.__objects[key] = obj
 
     def save(self):
         # serializes __objects to the JSON file (path: __file_path)
@@ -42,7 +42,6 @@ class FileStorage:
                 json.dump(existing_data, f, indent=8)
         except Exception:
             pass
-        self.__objects = {}
 
     def reload(self):
         # Deserializes the JSON file to __objects

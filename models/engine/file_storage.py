@@ -2,6 +2,7 @@
 # Implementation of the FileStorage Model
 
 import json
+import os
 
 
 class FileStorage:
@@ -24,23 +25,29 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        # serializes __objects to the JSON file (path: __file_path)
-        objs = {}
-        existing_data = {}
-        for key in self.__objects:
-            objs[key] = self.__objects[key].to_dict()
-        try:
-            with open(self.__file_path, 'r', encoding='UTF-8') as file:
-                existing_data = json.load(file)
-        except Exception:
-            pass
-
-        existing_data.update(objs)
+        # Serializes __objects to the JSON file (path: __file_path)
+        objs = {key: obj.to_dict() for key, obj in self.__objects.items()}
 
         try:
-            with open(self.__file_path, 'w', encoding='utf-8') as f:
-                json.dump(existing_data, f, indent=8)
-        except Exception:
+            # Check if the directory exists, create it if necessary
+            directory = os.path.dirname(self.__file_path)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
+            # Load existing data from the file
+            existing_data = {}
+            if os.path.exists(self.__file_path):
+                with open(self.__file_path, 'r', encoding='utf-8') as file:
+                    existing_data = json.load(file)
+
+            # Update existing data with new objects
+            existing_data.update(objs)
+
+            # Write the updated data to the file
+            with open(self.__file_path, 'w', encoding='utf-8') as file:
+                json.dump(existing_data, file, indent=4)
+
+        except Exception as e:
             pass
 
     def reload(self):

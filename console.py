@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Entry point of this AirBnB Application
+# This is entry point of this AirBnB Application
 
 import cmd
 from models.base_model import BaseModel

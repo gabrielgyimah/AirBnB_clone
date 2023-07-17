@@ -1,6 +1,7 @@
 import unittest
 from datetime import datetime as dtime
 from models import base_model
+from time import sleep
 
 """Base Model Unittest Module."""
 
@@ -83,7 +84,8 @@ class TestBaseModel(unittest.TestCase):
         # tests if the save method works
 
         obj  = base_model.BaseModel()
-        up1 = obj['update_at']
+        up1 = obj.updated_at
+        sleep(0.05)
         obj.save()
-        up2 = obj['updated_at']
+        up2 = obj.updated_at
         self.assertNotEqual(up1, up2)

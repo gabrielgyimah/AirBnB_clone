@@ -38,17 +38,18 @@ class FileStorage:
 
     def reload(self):
         # Deserializes the JSON file to __objects
-
+        # (only if the JSON file (__file_path)
+        # exists ; otherwise, do nothing.
+        # If the file doesn’t exist, no
+        # exception should be raised)
         if os.path.exists(self.__file_path):
             try:
-                with open(FileStorage.__file_path) as f:
-                    objdict = json.load(f)
-                    for o in objdict.values():
-                        cls_name = o["__class__"]
-                        del o["__class__"]
-                        self.new(eval(cls_name)(**o))
-            except FileNotFoundError:
-                return
+                with open(self.__file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    for key, obj_data in data.items():
+                        self.__objects[key] = obj_data
+            except Exception:
+                pass
         else:
             return
 

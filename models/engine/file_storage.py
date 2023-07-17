@@ -53,6 +53,8 @@ class FileStorage:
 
             except Exception:
                 pass
+        else:
+            return
 
     @property
     def get_file(self):

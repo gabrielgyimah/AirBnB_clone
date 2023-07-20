@@ -1,37 +1,21 @@
 {
-        "User.9f175ad8-1dd3-4426-9f9c-2809373427d1": {
-                "id": "9f175ad8-1dd3-4426-9f9c-2809373427d1",
-                "created_at": "2023-07-16T09:28:16.045257",
-                "updated_at": "2023-07-16T09:28:16.045257",
-                "__class__": "User"
+        "BaseModel.27940a8c-f55f-42c2-90e8-764dfce791cc": {
+                "id": "27940a8c-f55f-42c2-90e8-764dfce791cc",
+                "created_at": "2023-07-17T18:28:07.061786",
+                "updated_at": "2023-07-17T18:28:07.062812",
+                "__class__": "BaseModel"
         },
-        "User.6f39dfc3-d5fd-4c2f-8878-405f1a9f6e60": {
-                "id": "6f39dfc3-d5fd-4c2f-8878-405f1a9f6e60",
-                "created_at": "2023-07-16T09:28:19.620681",
-                "updated_at": "2023-07-16T09:28:19.620681",
-                "__class__": "User"
+        "Place.aa2a04dd-7772-4e89-acb7-e83b10ad8b2b": {
+                "id": "aa2a04dd-7772-4e89-acb7-e83b10ad8b2b",
+                "created_at": "2023-07-17T18:28:20.710634",
+                "updated_at": "2023-07-17T18:28:20.710634",
+                "__class__": "Place"
         },
-        "User.3360a9a1-b6c0-474a-b285-0c0a08f91732": {
-                "id": "3360a9a1-b6c0-474a-b285-0c0a08f91732",
-                "created_at": "2023-07-16T09:28:21.633696",
-                "updated_at": "2023-07-16T09:28:21.633696",
+        "User.7925eebd-832c-4319-b04b-2697d9aca9bf": {
+                "id": "7925eebd-832c-4319-b04b-2697d9aca9bf",
+                "created_at": "2023-07-17T18:28:25.609052",
+                "updated_at": "2023-07-17T18:28:25.609052",
                 "__class__": "User",
-                "name": "james aboagye",
-                "first_name": "kweku"
-        },
-        "Place.1b3fada2-9ea1-4d46-b33d-d0f049cec35b": {
-                "id": "1b3fada2-9ea1-4d46-b33d-d0f049cec35b",
-                "created_at": "2023-07-16T09:28:54.176093",
-                "updated_at": "2023-07-16T09:28:54.176093",
-                "__class__": "Place",
-                "name": "kweku bepoh",
-                "price_by_night": 23,
-                "latitude": 27
-        },
-        "Amenity.45d710ee-ea3a-43a5-a1af-40e1a224f857": {
-                "id": "45d710ee-ea3a-43a5-a1af-40e1a224f857",
-                "created_at": "2023-07-16T09:29:00.777347",
-                "updated_at": "2023-07-16T09:29:00.777347",
-                "__class__": "Amenity"
+                "name": "james"
         }
 }
